@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+#define N 5
+
+typedef struct {
+    char nome[30];
+    char cor[10];
+    int tropas;
+} Territorio;
+
+int main(void) {
+    Territorio t[N];
+    int i;
+
+    printf("Cadastro de %d territorios (nomes sem espacos)\n\n", N);
+
+    for (i = 0; i < N; i++) {
+        printf("Territorio %d\n", i + 1);
+        printf(" Nome: ");
+        scanf("%29s", t[i].nome);         // sem espaços (mais simples)
+        printf(" Cor do exercito: ");
+        scanf("%9s", t[i].cor);           // sem espaços
+        printf(" Tropas: ");
+        scanf("%d", &t[i].tropas);
+    }
+
+    printf("\n--- Territorios cadastrados ---\n");
+    for (i = 0; i < N; i++) {
+        printf("%d) Nome: %s | Cor: %s | Tropas: %d\n",
+               i + 1, t[i].nome, t[i].cor, t[i].tropas);
+    }
+
+    return 0;
+}
